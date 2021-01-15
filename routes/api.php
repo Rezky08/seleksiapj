@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['prefix' => 'karyawan'], function () {
+    Route::get('/', 'API\KaryawanController@index');
+    Route::post('/', 'API\KaryawanController@store');
+    Route::group(['prefix' => '{karyawan_id}'], function () {
+        Route::get('/', 'API\KaryawanController@show');
+        Route::put('/', 'API\KaryawanController@update');
+        Route::delete('/', 'API\KaryawanController@destroy');
+    });
+});

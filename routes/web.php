@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::group(['prefix' => 'karyawan'], function () {
+    Route::get('/', 'KaryawanController@index');
+    Route::get('/add', 'KaryawanController@create');
+    Route::post('/add', 'KaryawanController@store');
+    Route::group(['prefix' => '{karyawan_id}'], function () {
+        Route::get('/', 'KaryawanController@show');
+        Route::get('/edit', 'KaryawanController@edit');
+        Route::put('/edit', 'KaryawanController@update');
+        Route::delete('/', 'KaryawanController@destroy');
+    });
 });

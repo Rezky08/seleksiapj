@@ -16,6 +16,7 @@ class CreateKaryawanTable extends Migration
         Schema::create('karyawan', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 100);
+            $table->date('tanggal_lahir');
             $table->bigInteger('gaji')->nullable()->default(0);
             $table->boolean('status_karyawan')->nullable()->default(false);
             $table->timestamps();
