@@ -107,7 +107,7 @@ class KaryawanController extends Controller
         $karyawan = $this->karyawan_model->findOrFail($id);
         $data = [
             'karyawan' => $karyawan,
-            'title' => 'Ubah Karyawan',
+            'title' => 'Detail Karyawan',
             'method' => ''
         ];
         return view('karyawan.karyawan_form', $data);

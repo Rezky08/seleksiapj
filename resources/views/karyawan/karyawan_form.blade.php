@@ -88,6 +88,7 @@
 @push('script')
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+var calendars = bulmaCalendar.attach('[type="date"]');
 let method = "{{ $method }}";
 if (!method) {
 document.querySelectorAll('input,select').forEach((item) => {
